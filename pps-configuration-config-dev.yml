@@ -1,0 +1,36 @@
+mgs: Dev Profile
+spring:
+  cloud:
+    discovery:
+      enabled: true
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://202.161.191.133:4352/db_configuration_dev
+    username: dev
+    password: Po$tGr3@321$%
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+
+    # Eureka Server
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#Feign connection
+feign:
+  client:
+    project-concept: http://localhost:8081/pps-pc/
+
